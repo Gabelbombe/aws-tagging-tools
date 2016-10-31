@@ -12,7 +12,8 @@ Your folder should then look like the one below
 
 ##### Scripts
 
- - [S3 Runner](https://github.com/ehime/aws-tagging-tools/blob/master/runners/s3-bucket.php)
+ - [Bucket Runner](https://github.com/ehime/aws-tagging-tools/blob/master/runners/s3-bucket.php)
+ - [Volume Runner](https://github.com/ehime/aws-tagging-tools/blob/master/runners/ec2-volume.php)
  
  
 ##### Requirements
