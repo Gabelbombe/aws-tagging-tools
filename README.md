@@ -12,8 +12,9 @@ Your folder should then look like the one below
 
 ##### Scripts
 
- - [Bucket Runner](https://github.com/ehime/aws-tagging-tools/blob/master/runners/s3-bucket.php)
- - [Volume Runner](https://github.com/ehime/aws-tagging-tools/blob/master/runners/ec2-volume.php)
+ - [S3 Bucket Runner](https://github.com/ehime/aws-tagging-tools/blob/master/runners/s3-bucket.php)
+ - [EC2 Instance Runner](https://github.com/ehime/aws-tagging-tools/blob/master/runners/ec2-instance.php) [](##Does not currently exist)
+ - [EC2 Volume Runner](https://github.com/ehime/aws-tagging-tools/blob/master/runners/ec2-volume.php)
  
  
 ##### Requirements
