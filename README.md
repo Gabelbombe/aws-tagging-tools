@@ -8,7 +8,7 @@
 
 Your folder should then look like the one below
 
-![](assets/dirstruct.png =444x)
+![](assets/dirstruct.png | width=444)
 
 ##### Scripts
 
