@@ -8,7 +8,7 @@
 
 Your folder should then look like the one below
 
-![Directory Structure](https://github.com/ehime/aws-tagging-tools/blob/master/assets/dirstruct.png?raw=true =444x245)
+![Directory Structure](https://github.com/ehime/aws-tagging-tools/blob/master/assets/dirstruct.png=444x245)
 
 ##### Scripts
 
