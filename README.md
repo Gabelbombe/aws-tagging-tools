@@ -1,10 +1,10 @@
 ##### How to run
 
- - `cd /tmp && git clone https://github.com/ehime/aws-tagging-tools.git tagging ; cd $_`
- - `mkdir -p {output,data,vendor}`
- - `composer install`
+ - `$ cd /tmp && git clone https://github.com/ehime/aws-tagging-tools.git tagging ; cd $_`
+ - `$ mkdir -p {output,data,vendor}`
+ - `$ composer install`
  - Obtain your owners datafile from me!
- - `php -f runners/{toolname}.php`
+ - `$ use ${env} ; php -f runners/${scriptname}-.php`
 
 Your folder should then look like the one below
 
