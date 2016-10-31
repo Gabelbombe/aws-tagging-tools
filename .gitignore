@@ -1,0 +1,10 @@
+## Intellij
+.idea
+
+## Dirfiles
+vendor/
+data/
+output/
+
+## lockfile
+composer.lock
