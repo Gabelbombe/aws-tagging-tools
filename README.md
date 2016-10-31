@@ -6,6 +6,10 @@
  - Obtain your owners datafile from me!
  - `php -f runners/{toolname}.php`
 
+Your folder should then look like the one below
+
+![Directory Structure](https://github.com/ehime/aws-tagging-tools/blob/master/assets/dirstruct.png?raw=true)
+
 ##### Scripts
 
  - [S3 Runner](https://github.com/ehime/aws-tagging-tools/blob/master/runners/s3-bucket.php)
