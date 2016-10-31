@@ -4,7 +4,7 @@
  - `mkdir -p {output,data,vendor}`
  - `composer install`
  - Obtain your owners datafile from me!
- - `php -f {toolname}.php`
+ - `php -f runners/{toolname}.php`
 
 ##### Scripts
 
