@@ -8,7 +8,7 @@
 
 Your folder should then look like the one below
 
-![](https://github.com/ehime/aws-tagging-tools/raw/master/assets/dirstruct.png | =444x245)
+<img src='assets/dirstruct.png' width=444 height=245 />
 
 ##### Scripts
 
