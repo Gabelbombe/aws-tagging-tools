@@ -104,8 +104,10 @@ foreach ($metadata AS $resource) {
   //TODO: Reference from, http://docs.aws.amazon.com/aws-sdk-php/v2/api/class-Aws.CloudWatch.CloudWatchClient.html#_getMetricStatistics
   $metrics = $cloudClient->getMetricStatistics([
     'Namespace'  => 'AWS/EBS;',
-    'MetricName' => '',
-    'Dimensions' => [['Name' => 'Prefix', 'Value' => $prefix]],
+    'MetricName' => 'VolumeIdleTime',
+    'Dimensions' => [[
+      'Name' => 'VolumeId', 'Value' => $resource['VolumeId']    //do to the way that this is constructed im pretty sure that you can flood it with values....
+    ]],
     'StartTime'  => strtotime('-14 days'),
     'EndTime'    => strtotime('now'),
     'Period'     => 3000,
@@ -113,6 +115,7 @@ foreach ($metadata AS $resource) {
   ]);
 
 
+  print_r(json_encode($metrics, JSON_PRETTY_PRINT));
   unset($cloudClient);
 }
 
