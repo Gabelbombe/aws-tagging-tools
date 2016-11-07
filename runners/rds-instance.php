@@ -6,7 +6,7 @@ require dirname(__DIR__) . '/data/costcenter.php';
 
     USE Aws\Rds\RdsClient;
 
-    $account = shell_exec("aws ec2 describe-security-groups --group-names 'Default' --query 'SecurityGroups[0].OwnerId' --output text");
+$account = shell_exec("aws ec2 describe-security-groups --group-names 'Default' --query 'SecurityGroups[0].OwnerId' --output text");
 
 if (! isset($ownermap)) Throw New \RuntimeException('$ownermap needs to be defined, but isn\'t');
 
