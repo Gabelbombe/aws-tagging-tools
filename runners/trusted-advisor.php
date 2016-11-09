@@ -50,6 +50,7 @@ foreach ($trusted->CostOptimizing AS $optKey => $optCriteria) {
   }
 }
 
+
 $result = $supportClient->describeTrustedAdvisorCheckResult([
   'checkId'  => $typeKey,
   'language' => 'en',
@@ -63,7 +64,7 @@ $metaKeys = [
   'VolumeType',
   'Size',
   'Savings',
-  '0',            //idk?
+  '0',            //idk?    TODO: Ask tams wtf these are because.... yeah, idk...
   '1',            //idk?
   '2',            //idk?
 ];
@@ -73,6 +74,9 @@ $metaKeys = [
 $flagged      = $result['flaggedResources'];
 $summary      = $result['resourcesSummary'];
 $optimization = $result['categorySpecificSummary']['costOptimizing'];
+
+
+//TODO: find out if instances are a cloudformation stack or etc etc (will need tagging)
 
 
 foreach ($flagged AS $pos => $resource) {
@@ -90,32 +94,37 @@ foreach ($flagged AS $pos => $resource) {
 
   unset($supportClient); //clear buffer
 
+$metrics = [];
 
 //iterate meta
 foreach ($metadata AS $resource) {
 
-    $cloudClient = CloudWatchClient::factory([
-      'profile' => $profile,
-      'region'  => $resource['Region'],
-      'version' => 'latest',
-    ]);
+  $cloudClient = CloudWatchClient::factory([
+    'profile' => $profile,
+    'region'  => $resource['Region'],
+    'version' => 'latest',
+  ]);
 
-
-  //TODO: Reference from, http://docs.aws.amazon.com/aws-sdk-php/v2/api/class-Aws.CloudWatch.CloudWatchClient.html#_getMetricStatistics
-  $metrics = $cloudClient->getMetricStatistics([
-    'Namespace'  => 'AWS/EBS;',
+  $data = [
+    'Namespace'  => 'AWS/EBS',
     'MetricName' => 'VolumeIdleTime',
     'Dimensions' => [[
       'Name' => 'VolumeId', 'Value' => $resource['VolumeId']    //do to the way that this is constructed im pretty sure that you can flood it with values....
     ]],
-    'StartTime'  => strtotime('-14 days'),
-    'EndTime'    => strtotime('now'),
+    'StartTime'  => '2016-10-01T23:00:00Z',
+    'EndTime'    => '2016-11-02T00:00:00Z',
     'Period'     => 3000,
-    'Statistics' => ['Maximum', 'Minimum'],
-  ]);
+    'Statistics' => ['Average'],
+  ];
 
 
-  print_r(json_encode($metrics, JSON_PRETTY_PRINT));
+  //TODO: Reference from, http://docs.aws.amazon.com/aws-sdk-php/v2/api/class-Aws.CloudWatch.CloudWatchClient.html#_getMetricStatistics
+  $metrics[$resource['VolumeId']] = $cloudClient->getMetricStatistics($data);
+
+  print_r($metrics); die;
+
+break;
+
   unset($cloudClient);
 }
 
